@@ -1,6 +1,6 @@
 ### Overview:
 
-This is a task tracker I made using Vue.
+This is a task tracker web application I made using Vue.
 
 ### Contributors:
 
