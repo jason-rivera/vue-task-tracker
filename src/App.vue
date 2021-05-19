@@ -1,7 +1,11 @@
 <template>
   <div class="container">
     <Header title="Task Tracker" />
-    <Tasks v-bind:tasks="tasks"/>
+    <Tasks
+      @toggle-reminder="toggleReminder"
+      @delete-task="deleteTask"
+      v-bind:tasks="tasks"
+    />
   </div>
 </template>
 
@@ -13,11 +17,23 @@ export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+    };
+  },
+  methods: {
+    deleteTask(id) {
+      if (confirm('Are you sure?')) {
+        this.tasks = this.tasks.filter((task) => task.id !== id);
+      }
+    },
+    toggleReminder(id) {
+      console.log('toggled reminder');
+      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder } : task
+      )
     }
   },
   created() {
@@ -40,8 +56,8 @@ export default {
         day: 'march 3rd at 11:00am',
         reminder: false,
       },
-    ]
-  }
+    ];
+  },
 };
 </script>
 
