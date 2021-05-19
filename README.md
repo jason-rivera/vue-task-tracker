@@ -7,3 +7,4 @@ This is a task tracker web application I made using Vue.
 ### Contributions:
 
 - Jason Rivera
+- again, i'm putting in another 2nd branch
